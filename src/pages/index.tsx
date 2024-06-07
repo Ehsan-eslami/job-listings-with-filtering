@@ -1,6 +1,7 @@
 import path from "path";
 import { promises as fs } from "fs";
 import type { InferGetStaticPropsType, GetStaticProps } from 'next'
+import Header from "@/components/Header";
  
 type Posts = {
   id: number,
@@ -32,10 +33,12 @@ export default function Home({
   posts,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
 
-  console.log(posts);
+  // console.log(posts);
 
 
   return (
-    <main>Hello</main>      
+    <>
+      <Header/>
+    </>      
   );
 }
