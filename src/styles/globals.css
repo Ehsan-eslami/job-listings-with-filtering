@@ -58,3 +58,7 @@
 	font-family: "League Spartan", sans-serif;
 }
 
+body{
+  @apply bg-lightGrayishCyan-filterTablets w-screen h-screen flex flex-col justify-center items-center
+}
+

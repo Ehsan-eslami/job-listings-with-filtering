@@ -1,8 +1,8 @@
 
 export default function Header() {
   return (
-    <header>
-      <div className="hidden md:block fixed top-0 w-screen">
+    <div className="z-0">
+      <div className="hidden md:block absolute inset-0 w-full h-full object-cover ">
         <img 
           src="/images/bg-header-desktop.svg"
           alt="Desktop header" 
@@ -10,13 +10,13 @@ export default function Header() {
         />
       </div>
 
-      <div className="md:hidden block fixed top-0 w-screen">
+      <div className="md:hidden block absolute inset-0 w-full h-full object-cover ">
         <img 
           src="/images/bg-header-mobile.svg"
           alt="Desktop header" 
           className="w-full"
         />
       </div>
-    </header>
+    </div>
   )
 }
