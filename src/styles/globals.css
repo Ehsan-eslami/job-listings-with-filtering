@@ -59,6 +59,17 @@
 }
 
 body{
-  @apply bg-lightGrayishCyan-filterTablets w-screen h-screen flex flex-col justify-center items-center
+  @apply bg-lightGrayishCyan-filterTablets w-full h-full flex flex-col justify-center items-center 
 }
 
+ul{
+  @apply flex flex-col gap-3 relative mt-36 z-10
+}
+
+li{
+  @apply bg-white shadow-xl flex flex-row justify-between gap-10 py-6 px-9  rounded-sm
+}
+
+p{
+  @apply my-auto
+}
