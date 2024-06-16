@@ -5,12 +5,12 @@ import Header from "@/components/Header";
 import JobList from "@/components/JobList";
  
 type Posts = {
-  id: number,//
-  company: string,//
-  logo: string,//
-  new: boolean,//
-  featured: boolean,//
-  position: string,//
+  id: number,
+  company: string,
+  logo: string,
+  new: boolean,
+  featured: boolean,
+  position: string,
   role: string,
   level: string,
   postedAt: string,
@@ -33,7 +33,8 @@ export const getStaticProps = (async (context) => {
 export default function Home({
   posts,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-
+  
+  
   return (
     <>
       <Header />
