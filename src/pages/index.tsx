@@ -3,6 +3,7 @@ import { promises as fs } from "fs";
 import type { InferGetStaticPropsType, GetStaticProps } from 'next'
 import Header from "@/components/Header";
 import JobList from "@/components/JobList";
+import { createPortal } from "react-dom";
  
 type Posts = {
   id: number,
@@ -39,6 +40,10 @@ export default function Home({
     <>
       <Header />
       <JobList posts={posts} />
+      <footer className="attribution fixed bottom-0 z-40 left-[50%] translate-x-[-50%] bg-white py-1 px-2 ">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="https://github.com/Ehsan-eslami">Ehsan Eslami</a>.
+      </footer>
     </>      
   );
 }
