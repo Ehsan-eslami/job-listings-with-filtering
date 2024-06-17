@@ -3,7 +3,6 @@ import { promises as fs } from "fs";
 import type { InferGetStaticPropsType, GetStaticProps } from 'next'
 import Header from "@/components/Header";
 import JobList from "@/components/JobList";
-import { createPortal } from "react-dom";
  
 type Posts = {
   id: number,

@@ -70,13 +70,16 @@ ul{
   @apply flex flex-col gap-3 relative mt-36 z-10
 }
 
-li{
-  @apply bg-white shadow-xl flex flex-row justify-between gap-10 py-6 px-9  rounded-sm hover:scale-[1.02] duration-200
-  
+div{
+  @apply cursor-default
 }
 
-p{
-  @apply my-auto
+li{
+  @apply bg-white shadow-xl flex flex-row justify-between gap-10 py-6 px-9  rounded-sm hover:scale-[1.02] duration-200
+}
+
+p, h1, h2, h3, h4, h5, h6{
+  @apply my-auto cursor-default
 }
 
 .filter{

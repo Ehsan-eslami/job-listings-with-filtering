@@ -150,7 +150,7 @@ const JobList: React.FC<PostsProps> = ({ posts }) => {
         { data.map(post => (
           <li 
             key={post.id} 
-            className={post.featured && " border-l-4 border-darkGrayishCyan"}
+            className={post.featured ? " border-l-4 border-darkGrayishCyan" : ""}
           >
             <div className="flex flex-row gap-4">
               <div>
@@ -176,7 +176,7 @@ const JobList: React.FC<PostsProps> = ({ posts }) => {
                     </p>
                   )}
                 </div>
-                <h1 className="font-bold text-lg">
+                <h1 className="font-bold text-lg hover:text-darkGrayishCyan duration-200">
                   {post.position}
                 </h1>
                 <div className="flex flex-row gap-2 text-darkGrayishCyan">
