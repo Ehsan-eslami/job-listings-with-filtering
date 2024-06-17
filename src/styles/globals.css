@@ -62,14 +62,27 @@ body{
   @apply bg-lightGrayishCyan-filterTablets w-full h-full flex flex-col justify-center items-center 
 }
 
+.filter-input{
+  @apply flex justify-center bg-white p-5 py-3 shadow-xl text-darkGrayishCyan  font-semibold
+}
+
 ul{
   @apply flex flex-col gap-3 relative mt-36 z-10
 }
 
 li{
-  @apply bg-white shadow-xl flex flex-row justify-between gap-10 py-6 px-9  rounded-sm
+  @apply bg-white shadow-xl flex flex-row justify-between gap-10 py-6 px-9  rounded-sm hover:scale-[1.02] duration-200
+  
 }
 
 p{
   @apply my-auto
+}
+
+.filter{
+  @apply bg-lightGrayishCyan-filterTablets py-1 px-2 rounded-lg cursor-pointer hover:bg-darkGrayishCyan hover:text-lightGrayishCyan duration-200
+}
+
+.filter-chip{
+  @apply w-fit flex  bg-lightGrayishCyan-filterTablets rounded-l-md
 }
