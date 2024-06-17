@@ -59,7 +59,7 @@
 }
 
 body{
-  @apply bg-lightGrayishCyan-filterTablets w-full h-full flex flex-col justify-center items-center 
+  @apply bg-lightGrayishCyan-filterTablets w-full h-full flex flex-col justify-center items-center pb-10
 }
 
 .filter-input{
@@ -86,3 +86,6 @@ p{
 .filter-chip{
   @apply w-fit flex  bg-lightGrayishCyan-filterTablets rounded-l-md
 }
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
