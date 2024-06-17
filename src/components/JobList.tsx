@@ -152,12 +152,19 @@ const JobList: React.FC<PostsProps> = ({ posts }) => {
             key={post.id} 
             className={post.featured ? " border-l-4 border-darkGrayishCyan" : ""}
           >
-            <div className="flex flex-row gap-4">
-              <div>
+            <div className=" relative flex flex-row gap-4">
+              <div className="absolute top-[-50px] md:hidden">
                 <img  
                   src={post.logo}
                   alt="company logo"
-                  className="w-20"
+                  className="w-10 md:w-20"
+                />
+              </div>
+              <div className="hidden md:block">
+                <img  
+                  src={post.logo}
+                  alt="company logo"
+                  className="w-10 md:w-20"
                 />
               </div>
               <div className="flex flex-col gap-1">
@@ -194,7 +201,13 @@ const JobList: React.FC<PostsProps> = ({ posts }) => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-row gap-2 justify-between items-center text-darkGrayishCyan font-semibold">
+
+            {/* line in the mobile size */}
+            <div
+              className="line"  
+            ></div>
+
+            <div className="flex flex-row gap-1 md:gap-2 justify-between items-center text-darkGrayishCyan font-semibold">
               <p 
                 className="filter"
                 onClick={() => handleFilterChange('role', post.role)}
