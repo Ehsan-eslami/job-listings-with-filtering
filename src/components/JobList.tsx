@@ -25,6 +25,7 @@ const JobList: React.FC<PostsProps> = ({ posts }) => {
   const [data, setData ] = useState(posts);
   const [filters, setFilters] = useState({
     role: '',
+    level: '',
     languages: [] as string[],
     tools: [] as string[]
   });
@@ -37,6 +38,9 @@ const JobList: React.FC<PostsProps> = ({ posts }) => {
     let filteredData = [...posts];
     if (filters.role) {
       filteredData = filteredData.filter(post => post.role === filters.role);
+    }
+    if (filters.level) {
+      filteredData = filteredData.filter(post => post.level === filters.level);
     }
     if (filters.languages.length > 0) {
       filteredData = filteredData.filter(post => 
@@ -56,6 +60,8 @@ const JobList: React.FC<PostsProps> = ({ posts }) => {
       const updatedFilters = { ...prev };
       if (type === 'role') {
         updatedFilters.role = value;
+      } else if (type === 'level') {
+        updatedFilters.level = value;
       } else if (type === 'language') {
         updatedFilters.languages = updatedFilters.languages.includes(value)
           ? updatedFilters.languages.filter(lang => lang !== value)
@@ -74,6 +80,8 @@ const JobList: React.FC<PostsProps> = ({ posts }) => {
       const updatedFilters = { ...prev };
       if (type === 'role') {
         updatedFilters.role = '';
+      } else if (type === 'level') {
+        updatedFilters.level = '';
       } else if (type === 'language') {
         updatedFilters.languages = updatedFilters.languages.filter(lang => lang !== value);
       } else if (type === 'tool') {
@@ -86,7 +94,7 @@ const JobList: React.FC<PostsProps> = ({ posts }) => {
   return (
     <>
       <ul>
-        { (filters.role || filters.languages.length > 0 || filters.tools.length > 0) &&
+        { (filters.role || filters.level || filters.languages.length > 0 || filters.tools.length > 0) &&
           <div className="filter-input">
             <div className="w-[90%] flex gap-2 flex-wrap rounded-md">
               {filters.role && (  
@@ -96,6 +104,16 @@ const JobList: React.FC<PostsProps> = ({ posts }) => {
                   </span>
                   <div className="bg-darkGrayishCyan flex justify-center items-center p-2 rounded-r-md hover:bg-black duration-200">
                     <img src="/images/icon-remove.svg" alt="" onClick={() => clearFilter('role', filters.role)} />
+                  </div>
+                </div>
+              )}
+              {filters.level && (  
+                <div className="filter-chip">
+                  <span className="py-1 px-2">
+                  {filters.level}
+                  </span>
+                  <div className="bg-darkGrayishCyan flex justify-center items-center p-2 rounded-r-md hover:bg-black duration-200">
+                    <img src="/images/icon-remove.svg" alt="" onClick={() => clearFilter('level', filters.level)} />
                   </div>
                 </div>
               )}
@@ -122,7 +140,7 @@ const JobList: React.FC<PostsProps> = ({ posts }) => {
             </div>
             <button
               type="button"
-              onClick={() => setFilters({ role: '', languages: [], tools: [] })}
+              onClick={() => setFilters({ role: '',level: '', languages: [], tools: [] })}
               className="w-[10%] text-sm hover:underline duration-200"
             >
               Clear
@@ -130,7 +148,10 @@ const JobList: React.FC<PostsProps> = ({ posts }) => {
           </div>
         }
         { data.map(post => (
-          <li key={post.id}>
+          <li 
+            key={post.id} 
+            className={post.featured && " border-l-4 border-darkGrayishCyan"}
+          >
             <div className="flex flex-row gap-4">
               <div>
                 <img  
@@ -180,7 +201,10 @@ const JobList: React.FC<PostsProps> = ({ posts }) => {
               >
                 {post.role}
               </p>
-              <p className="filter">
+              <p 
+                className="filter"
+                onClick={()=> handleFilterChange('level', post.level)}
+              >
                 {post.level}
               </p>
               <div className="flex flex-row gap-2">
