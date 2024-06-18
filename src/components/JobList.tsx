@@ -92,7 +92,7 @@ const JobList: React.FC<PostsProps> = ({ posts }) => {
   };
 
   return (
-    <>
+    <main>
       <ul>
         { (filters.role || filters.level || filters.languages.length > 0 || filters.tools.length > 0) &&
           <div className="filter-input">
@@ -246,7 +246,7 @@ const JobList: React.FC<PostsProps> = ({ posts }) => {
           </li>
         ))}
       </ul>
-    </>
+    </main>
   );
 };
 
